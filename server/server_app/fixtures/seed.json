@@ -1,0 +1,85 @@
+[
+    {
+        "model": "server_app.Category",
+        "pk":1,
+        "fields":{
+            "title": "Pokemon"
+        }
+    },
+    {
+        "model": "server_app.Category",
+        "pk":2,
+        "fields":{
+            "title": "Magic The Gathering"
+        }
+    },
+    {
+        "model": "server_app.Category",
+        "pk":3,
+        "fields":{
+            "title": "Yu-Gi-Oh"
+        }
+    },
+    {
+        "model": "server_app.Category",
+        "pk":4,
+        "fields":{
+            "title": "Hearthstone"
+        }
+    },
+
+    {
+        "model": "server_app.Post",
+        "pk":1,
+        "fields":{
+            "title": "Pikachu",
+            "content":"Pika Bitch",
+            "category": 1
+        }
+    },
+    {
+        "model": "server_app.Post",
+        "pk":2,
+        "fields":{
+            "title": "Bulbasaur",
+            "content":"BoBa Tea",
+            "category": 1
+        }
+    },
+    {
+        "model": "server_app.Post",
+        "pk":3,
+        "fields":{
+            "title": "Charmander",
+            "content":"Char this",
+            "category": 1
+        }
+    },
+    {
+        "model": "server_app.Post",
+        "pk":4,
+        "fields":{
+            "title": "Black Lotus",
+            "content":"Very Expanesive card",
+            "category": 2
+        }
+    },
+    {
+        "model": "server_app.Post",
+        "pk":5,
+        "fields":{
+            "title": "Dark Magician",
+            "content":"Look at theese hands",
+            "category": 3
+        }
+    },
+    {
+        "model": "server_app.Post",
+        "pk":6,
+        "fields":{
+            "title": "Tournament",
+            "content":"Time to DUEL!!!!",
+            "category": 4
+        }
+    }
+]
