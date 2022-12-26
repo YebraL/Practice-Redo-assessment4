@@ -34,7 +34,10 @@ function CategoriesPage() {
    
   }
 
- 
+  function updateCategory(id){
+    console.log(id)
+  }
+
   useEffect( () => {
     getCategories()
   },[])
@@ -45,11 +48,12 @@ function CategoriesPage() {
         <div style={{justifyContent:'centered'}}>
         {categories && categories.map((category) => {
           return (
-            <div>
+            <div style={{display:'flex', width:'80%', justifyContent:'space-evenly' }}>
               <div>
               <h4>{category.title}</h4>
               </div>
               <button onClick={ ()=>{ removeCategory(category.id)}}>Delete</button>
+              <button onClick={ ()=>{ updateCategory(category.id)}}>Update</button>
             </div>
           )
         })}

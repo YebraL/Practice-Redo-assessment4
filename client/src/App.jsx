@@ -39,7 +39,7 @@ function App() {
     <h1>Welcome to CRUD </h1>
       <Router>
         <div>
-          <Navbar expand='sm' style={{display:'flex', justifyContent:'right', position:'sticky'}}>
+          <Navbar sticky= 'top' style={{display:'flex', justifyContent:'right'}}>
             <Container fluid>
               <Nav style={{width:'20%', justifyContent:'space-around'}}>
                 <Nav.Item>
