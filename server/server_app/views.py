@@ -39,3 +39,7 @@ def category(request, category_id):
         target = Category.objects.get(id= category_id)
         target.delete()
         return JsonResponse({'success':True})
+    
+@api_view(["GET", "POST", "DELETE"])
+def posts(request):
+    return JsonResponse({'success': True})
