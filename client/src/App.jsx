@@ -12,6 +12,8 @@ import Container from 'react-bootstrap/Container';
 import './App.css'
 import CategoriesPage from './components/CategoriesPage';
 
+import Post from './pages/Post';
+
 function App() {
 
   function getCookie(name) {
@@ -36,18 +38,22 @@ function App() {
   // style={{width:'100%', justifyContent:'space-around'}}
   return (
     <div className="App">
-    <h1>Welcome to CRUD </h1>
+    <h1>Welcome To Card Games CRUD </h1>
       <Router>
         <div>
           <Navbar sticky= 'top' style={{display:'flex', justifyContent:'right'}}>
             <Container fluid>
               <Nav style={{width:'20%', justifyContent:'space-around'}}>
+                
                 <Nav.Item>
                   <Link to='/'> Home </Link>
                 </Nav.Item>
+                
                 <Nav.Item>
                   <Link to='categories' > Categories </Link>
                 </Nav.Item>
+
+               
               </Nav>
             </Container>
           </Navbar>
@@ -56,6 +62,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='categories/' element={<CategoriesPage/>}/>
+          <Route path='categories/:id_category' element={<CategoriesPage/>}/>
+          <Route path='/posts/:id_category' element={<Post/>}/>
+          <Route path='/postss/:id_category' element={<Post/>}/>
         </Routes>
 
       </Router>
