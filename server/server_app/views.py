@@ -69,11 +69,22 @@ def post_by_category_id(request, id_category):
 
     return JsonResponse({'Fail': True})
 
-@api_view(["DELETE"])
+@api_view(["DELETE", "PUT"])
 def post_edit(request, post_id):
+    post_section = Post.objects.get(id=post_id)
     
     if request.method == 'DELETE':
-        print(post_id)
+        print(post_id, 'Delete was triggered')
         target = Post.objects.get(id= post_id)
         target.delete()
+        return JsonResponse({'success':True})
+    
+    if request.method == 'PUT':
+        print('triggered PUT')
+        new_Title = request.data['title']
+        new_Content = request.data['content']
+        print(new_Title, new_Content)
+        post_section.title = new_Title
+        post_section.content = new_Content
+        post_section.save()
         return JsonResponse({'success':True})

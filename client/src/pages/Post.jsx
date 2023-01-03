@@ -6,6 +6,8 @@ import axios from 'axios';
 function Post() {
     const params = useParams();
     const[posts, setAllPosts] = useState([]);
+    const[title, setTitle] = useState('');
+    const[content,setContent] = useState('');
 
     const getPosts = async() => {
         let response = await axios.get(`posts/${params.id_category}/`)
@@ -37,6 +39,18 @@ function Post() {
         }
     }
 
+    function updatePost(post_id){
+        console.log(post_id)
+        console.log(title)
+        console.log(content)
+        axios.put('postss/'+post_id+'/' , {'title': title, 'content': content})
+        .then( response => {
+          console.log(response.data.success)
+        }).then(
+          getCategories()
+        )
+      }
+
     useEffect( () => {
         getPosts()
       },[])
@@ -52,6 +66,18 @@ function Post() {
                         <h4>{post.title}</h4>
                         <p>{post.content}</p>
                         <button onClick={ ()=>{ removePost(post.id)}}>Delete</button>
+                        
+                        <input 
+                            value={title} 
+                            onChange={(event)=>{setTitle(event.target.value)}}
+                            placeholder='edit title'/>
+
+                        <input 
+                            value={content} 
+                            onChange={(event)=>{setContent(event.target.value)}}
+                            placeholder='edit content'/>
+                        <button onClick={ ()=>{ updatePost(post.id)}}>Update</button>
+                        
                     </div>
                 ))}
             <hr/>
