@@ -69,6 +69,7 @@ function CategoriesPage() {
                     onChange={(event)=>{setTitleInput(event.target.value)}}
                     placeholder='edit title'/>
               <button onClick={ ()=>{ updateCategory(category.id)}}>Update</button>
+              <p><a href={`#/info/${category.id}`}> INFO </a></p>
             </div>
           )
         })}

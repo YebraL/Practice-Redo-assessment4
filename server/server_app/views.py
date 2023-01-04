@@ -29,7 +29,10 @@ def category(request, category_id):
     category_section = Category.objects.get(id=category_id)
     
     if request.method == 'GET':
-        return JsonResponse({'success':True})
+        getPosts = Post.objects.filter(category = category_id ).values()
+        data = list(getPosts)
+        print(category_id)
+        return JsonResponse({'success': data})
         
     if request.method == 'PUT':
         # print('update triggered')

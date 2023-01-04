@@ -15,6 +15,7 @@ import CategoriesPage from './components/CategoriesPage';
 import Post from './pages/Post';
 import AllPost from './pages/AllPost';
 import SinglePostPage from './pages/SinglePostPage';
+import CategorySingle from './pages/CategorySingle';
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
           <Route path='categories/:id_category' element={<CategoriesPage/>}/>
           <Route path='/posts/:id_category' element={<Post/>}/>
           <Route path='/postss/:id_post' element={<SinglePostPage/>}/>
+          <Route path='/info/:id_category' element={<CategorySingle/>}/>
         </Routes>
 
       </Router>
