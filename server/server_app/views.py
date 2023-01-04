@@ -24,10 +24,13 @@ def categories(request):
         new_Category.save()
         return JsonResponse({'success': True})
 
-@api_view(["PUT","DELETE"])
+@api_view(["PUT", "DELETE", "GET"])
 def category(request, category_id):
     category_section = Category.objects.get(id=category_id)
     
+    if request.method == 'GET':
+        return JsonResponse({'success':True})
+        
     if request.method == 'PUT':
         # print('update triggered')
         new_Title = request.data['title']
@@ -42,7 +45,13 @@ def category(request, category_id):
         target.delete()
         return JsonResponse({'success':True})
     
-
+@api_view(["GET"])
+def posts(request):
+    if request.method == 'GET':
+        getPosts = Post.objects.all().values()
+        data = list(getPosts)
+        return JsonResponse({'success': data})
+    return JsonResponse({'success': True})
 
 @api_view(["GET", "POST"])
 def post_by_category_id(request, id_category):
@@ -69,9 +78,16 @@ def post_by_category_id(request, id_category):
 
     return JsonResponse({'Fail': True})
 
-@api_view(["DELETE", "PUT"])
+@api_view(["DELETE", "PUT", "GET"])
 def post_edit(request, post_id):
     post_section = Post.objects.get(id=post_id)
+    
+    if request.method == 'GET':
+        print('Trigger GET')
+        targetObject = list(Post.objects.all().filter(id=post_id).values())
+        # print(targetObject)
+        
+        return JsonResponse({'success':targetObject})
     
     if request.method == 'DELETE':
         print(post_id, 'Delete was triggered')

@@ -59,11 +59,11 @@ function Post() {
     return (
         <div>
             <h4>Post: {JSON.stringify(params)}</h4>
-            <h3>All Posts</h3>
+            <h3>All Posts On Specific Category</h3>
                 
                 {posts.map((post) =>(
                     <div key={post.id} style={{display:'flex', width:'80%', justifyContent:'space-evenly' }}>
-                        <h4>{post.title}</h4>
+                        <h4><a href={`#/postss/${post.id}`}>{post.title}</a></h4>
                         <p>{post.content}</p>
                         <button onClick={ ()=>{ removePost(post.id)}}>Delete</button>
                         

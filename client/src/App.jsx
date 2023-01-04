@@ -13,6 +13,8 @@ import './App.css'
 import CategoriesPage from './components/CategoriesPage';
 
 import Post from './pages/Post';
+import AllPost from './pages/AllPost';
+import SinglePostPage from './pages/SinglePostPage';
 
 function App() {
 
@@ -53,6 +55,10 @@ function App() {
                   <Link to='categories' > Categories </Link>
                 </Nav.Item>
 
+                <Nav.Item>
+                  <Link to='posts' > All Posts </Link>
+                </Nav.Item>
+
                
               </Nav>
             </Container>
@@ -62,9 +68,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='categories/' element={<CategoriesPage/>}/>
+          <Route path='posts/' element={<AllPost/>}/>
           <Route path='categories/:id_category' element={<CategoriesPage/>}/>
           <Route path='/posts/:id_category' element={<Post/>}/>
-          <Route path='/postss/:id_category' element={<Post/>}/>
+          <Route path='/postss/:id_post' element={<SinglePostPage/>}/>
         </Routes>
 
       </Router>
