@@ -29,6 +29,7 @@ function CategorySingle() {
             <p>some description this is...</p>
             <hr/>
             {posts.map((post)=>{
+                
                 return(
                     <div style={{display:'flex', width:'80%', justifyContent:'space-evenly' }}>
                         <h4>{post.title}</h4>

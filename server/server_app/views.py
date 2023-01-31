@@ -30,7 +30,7 @@ def category(request, category_id):
     
     if request.method == 'GET':
         getPosts = Post.objects.filter(category = category_id ).values()
-        data = list(getPosts)
+        data = list(category_section)
         print(category_id)
         return JsonResponse({'success': data})
         
